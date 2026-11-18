@@ -61,7 +61,7 @@ export function createHud(data) {
         if (r.station) parts.push(`at ${r.station}`);
         const b = document.createElement('button');
         b.className = why ? 'disabled' : '';
-        b.innerHTML = `<span class="swatch" style="background:${data.items[r.output].color}"></span><b>${data.items[r.output].name}</b><br><small>${parts.join(' · ')}${why ? ` — ${why}` : ''}</small>`;
+        b.innerHTML = `<span class="swatch" style="background:${data.items[r.output].color}"></span><b>${data.items[r.output].name}</b><br><span class="sub">${parts.join(' · ')}${why ? ` — ${why}` : ''}</span>`;
         b.addEventListener('click', () => {
           const res = craft(r, state.inventory, data.items, stations);
           this.toast(res.ok ? `Crafted ${data.items[r.output].name}` : res.reason);

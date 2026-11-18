@@ -46,3 +46,9 @@ The full design lives in the manifesto doc: https://claude.ai/artifact/3RKAy8VZ6
 1. Session zero: project skeleton, this file, tests, debug menu stub, a coloured square walking an empty island.
 2. Milestone 1 "Castaway, Day One": movement, gathering, hunger/thirst, day/night, basic crafting, sleep, save/load.
 3. Milestone 2 "Sailing prototype": boat, wind, open water.
+
+## Font
+- All text uses **Wreckborn Serif**, our own pixel font (`assets/fonts/`). Its letters are drawn by hand in
+  `tools/font/glyphs.txt`; rebuild with `python3 tools/font/build_font.py` (needs `pip install fonttools brotli`).
+  Preview: `tools/font/specimen.html`.
+- Use it only at multiples of 12px (one text size in the UI), and never bold or italic: both blur the pixels.

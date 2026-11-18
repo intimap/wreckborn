@@ -5,40 +5,45 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Wreckborn</title>
 <style>
-  html, body { margin: 0; height: 100%; background: #0b1d2a; overflow: hidden; font: 13px/1.4 monospace; color: #f4ead0; }
+  @font-face { font-family: 'Wreckborn Serif'; src: url('assets/fonts/wreckborn-serif.woff2') format('woff2'); font-display: block; }
+  html { font-size: 12px; }
+  button, select, input { font: inherit; }
+  b, strong { font-weight: normal; color: #fff6d8; }
+  html, body { margin: 0; height: 100%; background: #0b1d2a; overflow: hidden; font: 1rem/1.25 'Wreckborn Serif', monospace; -webkit-font-smoothing: none; font-smooth: never; color: #f4ead0; }
   #game { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; }
   canvas { image-rendering: pixelated; }
-  .panel { position: fixed; background: rgba(10,20,30,.9); border: 1px solid #e8d48b; padding: 8px 10px; z-index: 5; }
-  #status { top: 8px; right: 8px; width: 230px; }
-  .meter { display: flex; align-items: center; gap: 6px; margin: 2px 0; }
-  .meter span { width: 52px; }
-  .track { flex: 1; height: 8px; background: #22313d; }
+  .panel { position: fixed; background: rgba(10,20,30,.9); border: 0.0833333rem solid #e8d48b; padding: 0.666667rem 0.833333rem; z-index: 5; }
+  #status { top: 0.666667rem; right: 0.666667rem; width: 19.1667rem; }
+  .meter { display: flex; align-items: center; gap: 0.5rem; margin: 0.166667rem 0; }
+  .meter span { width: 4.33333rem; }
+  .track { flex: 1; height: 0.666667rem; background: #22313d; }
   .fill { height: 100%; }
-  #clock { margin-top: 4px; font-size: 12px; opacity: .9; }
-  #hotbar-wrap { bottom: 8px; left: 50%; transform: translateX(-50%); text-align: center; }
-  #hotbar { display: flex; gap: 4px; }
-  .slot { position: relative; width: 34px; height: 34px; background: #22313d; border: 2px solid #22313d; }
+  #clock { margin-top: 0.333333rem; opacity: .9; }
+  #hotbar-wrap { bottom: 0.666667rem; left: 50%; transform: translateX(-50%); text-align: center; }
+  #hotbar { display: flex; gap: 0.333333rem; }
+  .slot { position: relative; width: 3rem; height: 3rem; background: #22313d; border: 0.166667rem solid #22313d; }
   .slot.selected { border-color: #f4ead0; }
-  .slot .swatch { position: absolute; inset: 8px; }
-  .slot .key { position: absolute; top: 0; left: 2px; font-size: 9px; opacity: .6; }
-  .slot .count { position: absolute; bottom: 0; right: 2px; font-size: 11px; text-shadow: 1px 1px #000; }
-  #selected-name { min-height: 16px; font-size: 12px; margin-bottom: 4px; }
-  #hint { bottom: 76px; left: 50%; transform: translateX(-50%); display: none; }
+  .slot .swatch { position: absolute; inset: 0.666667rem; }
+  .slot .key { position: absolute; top: 0; left: 0.166667rem; opacity: .6; }
+  .slot .count { position: absolute; bottom: 0; right: 0.166667rem; text-shadow: 0.0833333rem 0.0833333rem #000; }
+  #selected-name { min-height: 1.33333rem; margin-bottom: 0.333333rem; }
+  #hint { bottom: 6.33333rem; left: 50%; transform: translateX(-50%); display: none; }
   #toast { position: fixed; top: 40%; left: 50%; transform: translateX(-50%); background: rgba(10,20,30,.85);
-    padding: 6px 12px; opacity: 0; transition: opacity .3s; pointer-events: none; z-index: 6; max-width: 80vw; text-align: center; }
-  #help { bottom: 8px; left: 8px; font-size: 11px; opacity: .8; }
-  #craft { top: 50%; left: 50%; transform: translate(-50%,-50%); width: 340px; max-height: 80vh; overflow: auto; display: none; z-index: 8; }
-  #craft button { display: block; width: 100%; margin: 5px 0; text-align: left; font: inherit; color: #f4ead0;
-    background: #2a6f97; border: 0; padding: 6px 8px; cursor: pointer; }
+    padding: 0.5rem 1rem; opacity: 0; transition: opacity .3s; pointer-events: none; z-index: 6; max-width: 80vw; text-align: center; }
+  #help { bottom: 0.666667rem; left: 0.666667rem; opacity: .8; }
+  #craft { top: 50%; left: 50%; transform: translate(-50%,-50%); width: 28.3333rem; max-height: 80vh; overflow: auto; display: none; z-index: 8; }
+  #craft button { display: block; width: 100%; margin: 0.416667rem 0; text-align: left; font: inherit; color: #f4ead0;
+    background: #2a6f97; border: 0; padding: 0.5rem 0.666667rem; cursor: pointer; }
+  #craft .sub { opacity: .8; }
   #craft button.disabled { background: #33414c; color: #9aa4ab; }
-  #craft .swatch { display: inline-block; width: 10px; height: 10px; margin-right: 6px; }
-  #debug { position: fixed; top: 8px; left: 8px; background: rgba(10,20,30,.95); padding: 10px; width: 270px;
-    border: 1px solid #e8d48b; display: none; z-index: 10; }
-  #debug .section { margin-top: 8px; opacity: .7; font-size: 11px; text-transform: uppercase; }
-  #debug .row { display: flex; gap: 4px; align-items: center; margin: 3px 0; }
-  #debug .row label { width: 52px; }
+  #craft .swatch { display: inline-block; width: 0.833333rem; height: 0.833333rem; margin-right: 0.5rem; }
+  #debug { position: fixed; top: 0.666667rem; left: 0.666667rem; background: rgba(10,20,30,.95); padding: 0.833333rem; width: 22.5rem;
+    border: 0.0833333rem solid #e8d48b; display: none; z-index: 10; }
+  #debug .section { margin-top: 0.666667rem; opacity: .7; text-transform: uppercase; }
+  #debug .row { display: flex; gap: 0.333333rem; align-items: center; margin: 0.25rem 0; }
+  #debug .row label { width: 4.33333rem; }
   #debug .row input[type=range], #debug select { flex: 1; }
-  #debug button { font: inherit; background: #2a6f97; color: #fff; border: 0; padding: 3px 6px; cursor: pointer; }
+  #debug button { font: inherit; background: #2a6f97; color: #fff; border: 0; padding: 0.25rem 0.5rem; cursor: pointer; }
   #debug button:hover { background: #3c8bb8; }
 </style>
 </head>

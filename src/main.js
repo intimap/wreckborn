@@ -153,6 +153,11 @@ const game = new Phaser.Game({
   type: Phaser.AUTO, parent: 'game', width: BASE_W, height: BASE_H, pixelArt: true,
   backgroundColor: '#0b1d2a', scale: { mode: Phaser.Scale.NONE }, scene: IslandScene,
 });
-function fitZoom() { game.scale.setZoom(Math.max(1, Math.floor(Math.min(innerWidth / BASE_W, innerHeight / BASE_H)))); }
+function fitZoom() {
+  const zoom = Math.max(1, Math.floor(Math.min(innerWidth / BASE_W, innerHeight / BASE_H)));
+  game.scale.setZoom(zoom);
+  // UI text stays pixel-perfect: the font is drawn on a 12px grid, so only whole multiples of 12px.
+  document.documentElement.style.fontSize = `${12 * Math.max(1, Math.floor(zoom / 2))}px`;
+}
 addEventListener('resize', fitZoom);
 fitZoom();
