@@ -1,0 +1,8 @@
+{
+  "palm":  { "name": "Palm",       "color": "#3f8f3a", "size": 12, "item": "coconut",  "max_yield": 3, "regrow_amount": 1, "regrow_every_days": 1, "depletes": false, "count": 12, "placement": "inland" },
+  "bush":  { "name": "Berry bush", "color": "#2f6b2f", "size": 10, "item": "berries",  "max_yield": 4, "regrow_amount": 4, "regrow_every_days": 2, "depletes": false, "count": 6,  "placement": "inland" },
+  "crab":  { "name": "Crab",       "color": "#e0603a", "size": 6,  "item": "raw_crab", "max_yield": 1, "depletes": true, "count": 6,  "placement": "shore", "tool": "spear" },
+  "stick": { "name": "Stick",      "color": "#9b6b3c", "size": 6,  "item": "stick",    "max_yield": 1, "depletes": true, "count": 10, "placement": "any" },
+  "stone": { "name": "Stone",      "color": "#8a8a8a", "size": 6,  "item": "stone",    "max_yield": 1, "depletes": true, "count": 8,  "placement": "any" },
+  "fibre": { "name": "Fibre",      "color": "#9fbf4a", "size": 6,  "item": "fibre",    "max_yield": 1, "depletes": true, "count": 10, "placement": "any" }
+}

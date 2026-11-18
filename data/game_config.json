@@ -1,4 +1,7 @@
 {
   "debug": true,
-  "island": { "width_tiles": 60, "height_tiles": 40, "radius_x": 22, "radius_y": 14 }
+  "island": { "width_tiles": 60, "height_tiles": 40, "radius_x": 22, "radius_y": 14 },
+  "inventory_slots": 10,
+  "interact_range": 20,
+  "start_bedroll_offset": { "x": 24, "y": 0 }
 }

@@ -1,0 +1,13 @@
+{
+  "real_seconds_per_day": 720,
+  "start_hour": 6,
+  "wake_hour": 6,
+  "pass_out_hour": 2,
+  "days_per_season": 28,
+  "seasons": ["Trade-wind season", "Storm season"],
+  "night_darkness": 0.6,
+  "dusk_start_hour": 18,
+  "dusk_end_hour": 21,
+  "dawn_start_hour": 5,
+  "dawn_end_hour": 7
+}

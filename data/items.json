@@ -1,0 +1,15 @@
+{
+  "coconut":        { "name": "Coconut",        "color": "#7a5230", "stack": 20 },
+  "opened_coconut": { "name": "Opened coconut", "color": "#f2efe6", "stack": 20, "food": { "hunger": 15, "thirst": 25 } },
+  "berries":        { "name": "Berries",        "color": "#8e3fa8", "stack": 20, "food": { "hunger": 8, "thirst": 3 } },
+  "raw_crab":       { "name": "Raw crab",       "color": "#e0603a", "stack": 10, "food": { "hunger": 10, "health": -5 } },
+  "cooked_crab":    { "name": "Cooked crab",    "color": "#b8401f", "stack": 10, "food": { "hunger": 35, "health": 5 } },
+  "stick":          { "name": "Stick",          "color": "#9b6b3c", "stack": 20 },
+  "stone":          { "name": "Stone",          "color": "#8a8a8a", "stack": 20 },
+  "fibre":          { "name": "Fibre",          "color": "#9fbf4a", "stack": 20 },
+  "sharp_stone":    { "name": "Sharp stone",    "color": "#c9c9d6", "stack": 1 },
+  "spear":          { "name": "Spear",          "color": "#d9b77a", "stack": 1 },
+  "campfire":       { "name": "Campfire",       "color": "#f28b30", "stack": 5, "placeable": { "station": "campfire" } },
+  "leaf_bed":       { "name": "Leaf bed",       "color": "#5f8f3a", "stack": 5, "placeable": { "sleep": true } },
+  "wreck_bedroll":  { "name": "Wreck bedroll",  "color": "#a0522d", "stack": 1, "placeable": { "sleep": true } }
+}

@@ -1,0 +1,14 @@
+{
+  "max": 100,
+  "start": { "health": 100, "hunger": 80, "thirst": 70 },
+  "hunger_per_hour": 1.4,
+  "thirst_per_hour": 2.8,
+  "empty_health_per_hour": 4,
+  "regen_health_per_hour": 1,
+  "regen_threshold": 50,
+  "sleep_drain_multiplier": 0.5,
+  "sleep_health": 30,
+  "pass_out_health_penalty": 15,
+  "wash_ashore_meters": 50,
+  "wash_ashore_item_loss": 0.5
+}

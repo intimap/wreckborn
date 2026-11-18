@@ -1,0 +1,8 @@
+[
+  { "id": "sharp_stone",    "output": "sharp_stone",    "count": 1, "inputs": { "stone": 2 } },
+  { "id": "opened_coconut", "output": "opened_coconut", "count": 1, "inputs": { "coconut": 1 }, "tools": ["sharp_stone"] },
+  { "id": "spear",          "output": "spear",          "count": 1, "inputs": { "stick": 2, "fibre": 3, "stone": 1 } },
+  { "id": "campfire",       "output": "campfire",       "count": 1, "inputs": { "stone": 5, "stick": 4 } },
+  { "id": "leaf_bed",       "output": "leaf_bed",       "count": 1, "inputs": { "fibre": 8, "stick": 4 } },
+  { "id": "cooked_crab",    "output": "cooked_crab",    "count": 1, "inputs": { "raw_crab": 1 }, "station": "campfire" }
+]
