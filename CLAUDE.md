@@ -9,26 +9,28 @@ The full design lives in the manifesto doc: https://claude.ai/artifact/3RKAy8VZ6
 - Design decisions belong to the owner. If a ticket is ambiguous about how the game should *feel or play*, ask before building.
 
 ## Stack
-- Godot 4 (latest stable), GDScript only. No C#, no plugins unless agreed.
-- Target: PC (Windows, Mac). Base resolution 640x360, 16x16 tiles, integer scaling, nearest-neighbour filtering.
+- Browser game: plain JavaScript (ES modules) + Phaser 3, vendored in `vendor/` (no build step, no other libraries unless agreed).
+- Target: desktop browsers (Chrome, Firefox, Safari, Edge). Base resolution 640x360, 16x16 tiles, integer scaling, pixel-art (nearest-neighbour) rendering.
+- Run locally: `npm start`, then open http://localhost:8080. Each build is also published as a playable artifact link.
 - Art: placeholder shapes/colours until told otherwise. Never block on art.
 
 ## Architecture rules
-- Data-driven: items, recipes, crops, buildings, ships and prices are Godot Resource files (.tres) under `data/`,
-  editable in the Godot editor without code. Systems read data; they never hard-code balance numbers.
-- One system per folder under `systems/` (e.g. `systems/survival/`, `systems/inventory/`, `systems/time/`).
-- Global state goes through a small number of autoloads (e.g. `GameClock`, `SaveManager`, `EventBus`). Keep them few.
+- Data-driven: items, recipes, crops, buildings, ships and prices are JSON files under `data/`,
+  editable in any text editor without touching code. Systems read data; they never hard-code balance numbers.
+- One system per folder under `src/systems/` (e.g. `src/systems/survival/`, `src/systems/inventory/`).
+- Global state goes through a small number of shared modules (e.g. `GameClock`, `SaveManager`, `EventBus`). Keep them few.
 - Saving: only when the player sleeps (for now). Save files are versioned so old saves can be migrated.
 - Every system that matters for balance must be inspectable/controllable from the debug menu.
 
 ## Debug menu
-- Toggle with F1 in debug builds only. Must support at minimum: skip time (hours/days/season), spawn any item,
+- Toggle with F1, only when `data/game_config.json` has `"debug": true`. Must support at minimum: skip time (hours/days/season), spawn any item,
   set survival meters, teleport. Add a control for every new system as it is built.
 
 ## Testing
-- Use the GUT test framework (`addons/gut`). Tests live in `tests/`, mirroring `systems/`.
-- Every ticket that adds logic adds tests for it. Run the full suite headless before committing:
-  `godot --headless -s addons/gut/gut_cmdln.gd -gexit`
+- Use Node's built-in test runner. Tests live in `tests/`, mirroring `src/systems/`. Keep game logic in pure
+  functions (no Phaser) so it can be tested.
+- Every ticket that adds logic adds tests for it. Run the full suite before committing: `npm test`
+- Also load the game in headless Chromium (Playwright) and check for console errors before committing.
 - Never commit with failing tests.
 
 ## Session routine
@@ -41,6 +43,6 @@ The full design lives in the manifesto doc: https://claude.ai/artifact/3RKAy8VZ6
 6. When the owner reports back, fix the issues or close the ticket.
 
 ## Roadmap
-1. Session zero: project skeleton, this file, GUT, debug menu stub, a coloured square walking an empty island.
+1. Session zero: project skeleton, this file, tests, debug menu stub, a coloured square walking an empty island.
 2. Milestone 1 "Castaway, Day One": movement, gathering, hunger/thirst, day/night, basic crafting, sleep, save/load.
 3. Milestone 2 "Sailing prototype": boat, wind, open water.

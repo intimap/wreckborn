@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Wreckborn</title>
+<style>
+  html, body { margin: 0; height: 100%; background: #0b1d2a; overflow: hidden; }
+  #game { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; }
+  canvas { image-rendering: pixelated; }
+  #debug { position: fixed; top: 8px; left: 8px; background: rgba(10,20,30,.92); color: #f4ead0;
+    font: 13px/1.4 monospace; padding: 10px; border: 1px solid #e8d48b; display: none; z-index: 10; }
+  #debug button { display: block; width: 100%; margin: 4px 0; font: inherit; background: #2a6f97;
+    color: #fff; border: 0; padding: 4px 8px; cursor: pointer; text-align: left; }
+  #debug button:hover { background: #3c8bb8; }
+  #debug .note { opacity: .6; font-size: 11px; margin-top: 6px; }
+</style>
+</head>
+<body>
+<div id="game"></div>
+<div id="debug"></div>
+<script src="vendor/phaser.min.js"></script>
+<script type="module" src="src/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,4 @@
+{
+  "debug": true,
+  "island": { "width_tiles": 60, "height_tiles": 40, "radius_x": 22, "radius_y": 14 }
+}

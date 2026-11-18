@@ -1,0 +1,5 @@
+{
+  "move_speed": 80,
+  "acceleration": 800,
+  "friction": 1000
+}
