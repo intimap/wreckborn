@@ -1,3 +1,4 @@
+@metrics asc=9 desc=3 x=6 file=wreckborn-serif family=Wreckborn Serif
 # Wreckborn Serif: an original pixel font. Each glyph: "== <char> <top row>" then rows of pixels.
 # Rows 0-8 sit above the baseline (capitals are 9 tall, lowercase x-height is rows 3-8); rows 9-11 are descenders.
 # '#' = pixel on. Width = length of the row. Edit here, then run: python3 tools/font/build_font.py

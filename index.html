@@ -6,7 +6,11 @@
 <title>Wreckborn</title>
 <style>
   @font-face { font-family: 'Wreckborn Serif'; src: url('assets/fonts/wreckborn-serif.woff2') format('woff2'); font-display: block; }
+  @font-face { font-family: 'Wreckborn Small'; src: url('assets/fonts/wreckborn-small.woff2') format('woff2'); font-display: block; }
   html { font-size: 12px; }
+  /* Small print: Wreckborn Small is drawn on an 8px grid, so 8/12 of the UI size keeps it pixel-perfect. */
+  .small, .slot .key, .slot .count, #help, #debug .section, #craft .sub, .meter span {
+    font-family: 'Wreckborn Small', monospace; font-size: 0.666667rem; line-height: 1.5; }
   button, select, input { font: inherit; }
   b, strong { font-weight: normal; color: #fff6d8; }
   html, body { margin: 0; height: 100%; background: #0b1d2a; overflow: hidden; font: 1rem/1.25 'Wreckborn Serif', monospace; -webkit-font-smoothing: none; font-smooth: never; color: #f4ead0; }

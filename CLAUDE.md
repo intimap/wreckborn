@@ -48,7 +48,9 @@ The full design lives in the manifesto doc: https://claude.ai/artifact/3RKAy8VZ6
 3. Milestone 2 "Sailing prototype": boat, wind, open water.
 
 ## Font
-- All text uses **Wreckborn Serif**, our own pixel font (`assets/fonts/`). Its letters are drawn by hand in
-  `tools/font/glyphs.txt`; rebuild with `python3 tools/font/build_font.py` (needs `pip install fonttools brotli`).
-  Preview: `tools/font/specimen.html`.
-- Use it only at multiples of 12px (one text size in the UI), and never bold or italic: both blur the pixels.
+- Two original pixel fonts in `assets/fonts/`: **Wreckborn Serif** for all normal text, and **Wreckborn Small**
+  (chunky sans) for small print: counts, key labels, controls help, debug labels, recipe ingredients.
+- Letters are drawn by hand in `tools/font/glyphs.txt` and `tools/font/glyphs_small.txt`; rebuild both with
+  `python3 tools/font/build_font.py` (needs `pip install fonttools brotli`). Preview: `tools/font/specimen.html`.
+- Serif only at multiples of 12px, Small only at multiples of 8px (in CSS: `1rem` and `0.666667rem`).
+  Never bold or italic: both blur the pixels.
